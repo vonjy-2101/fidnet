@@ -31,8 +31,8 @@ class MapController extends Zend_Controller_Action
         
         $html = "";
         $html = "<h3> ELECTEURS INSCRIT : ".sizeof($countRegionElecteur)." </h3>";
-        $html .= "<table class='table'>";
-        $html .= "<thead>";
+        $html .= "<table class='table table-striped table-bordered'  >";
+        $html .= "<thead style='background:#00a65a;color:white'>";
         $html .= "<th>DISTRICT</th>";
         $html .= "<th>NOMBRE INSCRIT</th>";
         $html .= "</thead>";
