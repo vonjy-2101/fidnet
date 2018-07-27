@@ -1,0 +1,65 @@
+
+<div class="col-lg-6">
+    <div id="mapdiv" style=" background-color:#EEEEEE; height: 500px;"></div>
+</div>
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Information</h3>
+        </div>
+        <div class="panel-body">
+            <h3>Région : <span id="name-region"></span></h3>
+            <div id="retour_ajax"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var map;
+
+    AmCharts.ready(function() {
+        map = new AmCharts.AmMap();
+
+
+        map.balloon.color = "green";
+
+        var dataProvider = {
+            mapVar: AmCharts.maps.madagascarHigh,
+            getAreasFromMap:true
+        };
+
+        map.dataProvider = dataProvider;
+
+        map.areasSettings = {
+            autoZoom: true,
+            selectedColor: "gray",
+
+        };
+
+        map.smallMap = new AmCharts.SmallMap();
+
+        map.write("mapdiv");
+
+        map.addListener("clickMapObject", function(event) {
+          
+            $("#name-region").html("");
+            $("#name-region").html(event.mapObject.title);
+
+            $.ajax({
+                url : "map/getinfo",
+                type : "post",
+                data : "region="+event.mapObject.title,
+                success : function($html){
+                    $("#retour_ajax").html("");
+                    $("#retour_ajax").html($html);
+                },
+                error : function($html){
+                    
+                }
+            })
+          
+        });
+
+    });
+</script>
