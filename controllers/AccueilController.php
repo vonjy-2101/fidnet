@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class AccueilController extends Zend_Controller_Action
 {
 
     public function init()
@@ -10,9 +10,11 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction(){
 
-        $this->_redirect('accueil/accueil');
     }
 
+    public function accueilAction(){
+
+    }
 
 }
 
