@@ -1,0 +1,55 @@
+<form action="" method="post">
+    <div class="form-group" align="center">
+        <label>Nom</label>
+        <div class="form-group">
+            <input type="text" name="nom_elec" class="form-control" style="width: 300px">
+        </div>
+    </div>
+    <div class="form-group" align="center">
+        <label>Prénom</label>
+
+            <input type="text" name="prenom_elec" class="form-control" style="width: 300px">
+
+    </div>
+    <div class="form-group" align="center">
+        <label>Date et lieudN</label>
+
+            <input type="date" name="datenaissance_elec" class="form-control" style="width: 300px">
+        </div>
+    <div class="form-group" align="center">
+        <label>Sexe</label>
+        <input type="text" name="sexe_elec" class="form-control" style="width: 300px">
+    </div>
+
+    <div class="form-group"  align="center">
+        <label>Antecedant</label>
+        <input type="text" name="antecedant_judiciaire_elec" class="form-control" style="width: 300px">
+    </div>
+    <div class="form-group"  align="center">
+        <label>CIN</label>
+        <input type="text" name="num_cin_elec" class="form-control" style="width: 300px">
+    </div>
+    <div class="form-group"  align="center">
+        <label>Proffession</label>
+        <input type="text" name="profession_elec" class="form-control" style="width: 300px">
+    </div>
+    <div class="form-group"  align="center">
+        <label>Bureau de vote</label>
+        <input type="text" name="id_bv" class="form-control" style="width: 300px">
+    </div>
+    <div class="form-group"  align="center">
+        <label>Bureau de vote</label>
+        <select class="form-control" style="width: 300px" name="id_reg">
+            <?php
+            foreach($this->region as $v) {
+                echo '<option value="'.$v['CLEREG'].'">'.utf8_encode($v['NOM_REG']).'</option>';
+            }
+
+            ?>
+        </select>
+    </div>
+    <div class="form-group"  align="center">
+        <label>Email</label>
+        <input type="submit" name="value" class="form-control" style="width: 250px">
+    </div>
+</form>
