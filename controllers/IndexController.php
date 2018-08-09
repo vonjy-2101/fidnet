@@ -3,14 +3,21 @@
 class IndexController extends Zend_Controller_Action
 {
 
+	private $fokontanyORM ;
+
     public function init()
     {
-        /* Initialize action controller here */
+        $this->fokontanyORM = new Application_Model_DbTable_Fokontany();
     }
 
     public function indexAction(){
-
         $this->_redirect('accueil/accueil');
+    }
+
+    public function getinfoAction()
+    {
+    	$this->_helper->layout()->disableLayout();
+    	var_dump($_POST);
     }
 
 
